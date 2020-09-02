@@ -28,7 +28,17 @@ public class Calcifer extends Characters {
 	}
 	
 	protected void moveDown() {
+	
+	}
+	
+//=========================================================
+		
+		
+		
+	protected void eatCalcifer() {
 		
 	}
+	
+	
 
 }
