@@ -1,44 +1,63 @@
+import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Calcifer extends Characters {
-
+	
+	PApplet app;
+	PImage calcifer;
+	
 	int lives =3;
 	int aspect;
-	
-	public Calcifer(int posx, int posy, int dirx, int diry, int speed) {
-		super(posx, posy, dirx, diry, speed);
+
+	public Calcifer(int posx, int posy,int speed, PApplet app) {
+		super(posx, posy, speed);
+		this.app = app;
+		calcifer=app.loadImage("./Resources/calcifer.png");
 		
+
 	}
-
-
+	
 	protected void paint() {
 		// TODO Auto-generated method stub
-		
-	}
-	
-	protected void moveLeft() {
-		
-	}
-	
-	protected void moveRight() {
-		
+		app.image(calcifer ,getPosX(),getPosY());	
 	}
 
-	protected void moveUp() {
-		
+	public void moveLeft() {
+		posX -= speed;
+		if(posX <= 0){
+			posX += speed;
+		}
 	}
-	
-	protected void moveDown() {
-	
+
+	public void moveRight() {
+		posX += speed;
+		if(posX >= 600){
+			posX -= speed;
+		}
 	}
-	
-//=========================================================
-		
-		
-		
+
+	public void moveUp() {
+		posY += speed;
+		if(posY >= 0){
+			posY -= speed;
+		}
+	}
+
+	public void moveDown() {
+		posY -= speed;
+		if(posY <= 720){
+			posY += speed;
+		}
+	}
+
+	//=========================================================
+
+
+
 	protected void eatCalcifer() {
-		
+
 	}
-	
-	
+
+
 
 }
