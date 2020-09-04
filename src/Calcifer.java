@@ -37,16 +37,16 @@ public class Calcifer extends Characters {
 	}
 
 	public void moveUp() {
-		posY += speed;
-		if(posY >= 0){
-			posY -= speed;
+		posY -= speed;
+		if(posY <= 0){
+			posY += speed;
 		}
 	}
 
 	public void moveDown() {
-		posY -= speed;
-		if(posY <= 720){
-			posY += speed;
+		posY += speed;
+		if(posY >= 720){
+			posY -= speed;
 		}
 	}
 
