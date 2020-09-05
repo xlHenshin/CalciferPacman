@@ -3,16 +3,33 @@ public abstract class Characters {
 
 	protected int posX;
 	protected int posY;
-	//private int dirX;
-	//private int dirY;
 	protected int speed;
+	protected int matX;
+	protected int matY;
 
 	public Characters(int posx, int posy, int speed) {
 
 		this.posX = posx;
 		this.posY = posy;
 		
-		this.speed = speed;
+		this.speed = speed;	
+	}
+	
+	
+	public int getMatX() {
+		return matX;
+	}
+
+	public void setMatX(int matX) {
+		this.matX = matX;
+	}
+
+	public int getMatY() {
+		return matY;
+	}
+
+	public void setMatY(int matY) {
+		this.matY = matY;
 	}
 
 	protected abstract void paint();
