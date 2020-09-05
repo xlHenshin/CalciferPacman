@@ -3,35 +3,35 @@ import processing.core.PImage;
 
 public class Main extends PApplet{
 
+	public Screens screens;
 	public Calcifer player;
-	PImage bg;
-
-
-
-	public boolean movR;
-	public boolean movL;
-	public boolean movU;
-	public boolean movD;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PApplet.main("Main");
 	}
+	
+	public boolean movR;
+	public boolean movL;
+	public boolean movU;
+	public boolean movD;
 
 	int [][] maze;
 	int col, row;	
+	int matX , matY;
+	int screen;
 
 	public void settings() {
-		size(600, 720);
+		size(616, 728);
 	}
 
 	public void setup() {
-		player = new Calcifer(290, 540, 3, this);
-		bg = loadImage("./Resources/maze.png");
+		player = new Calcifer(290, 540, 5, this);
+		screens = new Screens(this);
 
 		col=28;
 		row= 33;
-
+		screen=1;
 		maze = new int [][] {
 				// 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
 
@@ -75,10 +75,11 @@ public class Main extends PApplet{
 	}
 
 	public void draw() {
-		//background (0);
+		background (0);
 
-		image(bg,0,0);
 
+		
+		
 		
 
 		for (int i = 0; i < col; i++) {
@@ -91,8 +92,28 @@ public class Main extends PApplet{
 					fill(255,0,0);
 				}
 				
-				rect( (i*21),(j*21),21,21);
+				rect( (i*22),(j*22),22,22);
 			}
+			
+			switch (screen) {
+			case 1:
+				screens.screen1();
+				break;
+				
+			case 2:
+				screens.screen2();
+				break;
+
+			case 3:
+				screens.screen3(); //scores
+				break;
+				
+			case 4:
+				screens.maze();
+				break;
+			}
+			
+			
 		}
 
 		
