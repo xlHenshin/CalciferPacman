@@ -105,7 +105,7 @@ public class Main extends PApplet{
 				break;
 
 			case 3:
-				screens.screen3(); //scores
+				screens.screen3();
 				break;
 				
 			case 4:
@@ -145,6 +145,50 @@ public class Main extends PApplet{
 
 	public void mousePressed() {
 
+		PApplet.println(mouseX);
+		PApplet.println(mouseY);
+		
+		switch (screen) {
+		case 1:
+			if (mouseX > 227 && mouseX < 277 + 163
+				&& mouseY > 496 && mouseY < 496 + 38 )	// Play
+				screen = 2;
+			
+			if (mouseX > 227 && mouseX < 277 + 163
+				&& mouseY > 558 && mouseY < 558 +40)  // Score
+				screen = 3;
+			
+			if (mouseX > 227 && mouseX < 277 + 163
+				&& mouseY >  624 && mouseY< 624 + 39) //Exit
+				exit (); 
+			
+			break;
+			
+		case 2:
+			if (mouseX > 227 && mouseX < 277 + 163
+				&& mouseY > 482 && mouseY < 482 + 40 )	// Continue
+				screen = 4;
+			
+			if (mouseX > 477 && mouseX < 477 + 87
+				&& mouseY > 14 && mouseY < 14 +25)  // Go back to Menu
+				screen = 1;
+			
+			break;
+			
+		case 3:
+			if (mouseX > 477 && mouseX < 477 + 87
+				&& mouseY > 14 && mouseY < 14 +25)  // Go back to Menu
+				screen = 1;
+			
+			break;
+			
+		case 4:
+			if (mouseX > 477 && mouseX < 477 + 87
+				&& mouseY > 14 && mouseY < 14 +25)  // Go back to Menu
+				screen = 1;
+			
+			break;
+		}
 	}
 
 	public void keyPressed() {
