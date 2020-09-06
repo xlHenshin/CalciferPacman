@@ -1,3 +1,5 @@
+
+
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -20,20 +22,31 @@ public class Main extends PApplet{
 	int col, row;	
 	int matX , matY;
 	int screen;
+	int posX, posY;
 
 	public void settings() {
 		size(616, 728);
 	}
 
+	
+	
 	public void setup() {
-		player = new Calcifer(290, 540, 5, this);
+		
 		screens = new Screens(this);
-
+		
 		col=28;
 		row= 33;
 		screen=1;
+		
+		posX=33;
+		posY=77;
+		matX=1;
+		matY=3;
+		player= new Calcifer(posX, posY, matX, matY, this);
+		
+		
 		maze = new int [][] {
-				// 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+				//1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
 
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, //1
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, //1
@@ -74,13 +87,11 @@ public class Main extends PApplet{
 
 	}
 
+	
+	
+	
 	public void draw() {
 		background (0);
-
-
-		
-		
-		
 
 		for (int i = 0; i < col; i++) {
 			for (int j = 0; j < row; j++) {
@@ -110,15 +121,15 @@ public class Main extends PApplet{
 				
 			case 4:
 				screens.maze();
+				ellipse(posX,posY,20,20);
 				break;
 			}
 			
 			
+			
 		}
 
-		
-		
-		player.paint();
+		/*player.paint();
 
 		if (movR==true){
 			player.moveRight();
@@ -134,9 +145,9 @@ public class Main extends PApplet{
 
 		if (movD==true){
 			player.moveDown();
-		}
+		}*/
 
-
+		
 
 	}
 
@@ -191,36 +202,38 @@ public class Main extends PApplet{
 		}
 	}
 
+	
 	public void keyPressed() {
-		if(keyCode == RIGHT) {
-			movR = true;
+
+		switch (keyCode) {
+		case RIGHT:
+			if(maze[matY][matX+1]!=0) {
+				posX += 22;
+				matX++;
+			}
+			break;
+		case LEFT:
+			if(maze[matY][matX-1]!=0) {
+				posX -= 22;
+				matX--;
+			}
+			break;
+		case UP:
+			if(maze[matY-1][matX]!=0) {
+				posY -= 22;
+				matY--;
+			}
+			break;
+		case DOWN:
+			if(maze[matY+1][matX]!=0) {
+				posY += 22;
+				matY++;
+			}
+			break;
+		default:
+			break;
 		}
-		if(keyCode == LEFT) {
-			movL = true;
-		}
-		if(keyCode == DOWN) {
-			movD = true;
-		}
-		if(keyCode == UP) {
-			movU = true;
-		}
+	
 	}
-
-	public void keyReleased() {
-		if(keyCode == RIGHT) {
-			movR = false;
-		}
-		if(keyCode == LEFT) {
-			movL = false;
-		}
-		if(keyCode == DOWN) {
-			movD = false;
-		}
-		if(keyCode == UP) {
-			movU = false;
-		}
-	}
-
-
 
 }

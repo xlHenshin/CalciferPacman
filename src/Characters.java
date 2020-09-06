@@ -1,16 +1,17 @@
 
 public abstract class Characters {
 
-	protected int posX;
-	protected int posY;
-	protected int speed;
-
-	public Characters(int posx, int posy, int speed) {
+	private int posX;
+	private int posY;
+	private int matX;
+	private int matY;
+	
+	public Characters(int posx, int posy, int matx, int maty) {
 
 		this.posX = posx;
 		this.posY = posy;
-		
-		this.speed = speed;	
+		this.matX = matx;
+		this.matY = maty;
 	}
 	
 
@@ -20,27 +21,43 @@ public abstract class Characters {
 	public int getPosX() {
 		return posX;
 	}
-
+	
 	public void setPosX(int posX) {
 		this.posX = posX;
 	}
-
+	
 	public int getPosY() {
 		return posY;
 	}
-
+	
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
 
-	public int getSpeed() {
-		return speed;
+
+
+	public int getMatX() {
+		return matX;
 	}
 
-	public void setSpeed(int speed) {
-		this.speed = speed;
+
+
+	public void setMatX(int matX) {
+		this.matX = matX;
 	}
 
 
 
+	public int getMatY() {
+		return matY;
+	}
+
+
+
+	public void setMatY(int matY) {
+		this.matY = matY;
+	}
+	
+	
+	
 }
