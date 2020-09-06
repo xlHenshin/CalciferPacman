@@ -6,12 +6,11 @@ public abstract class Characters {
 	private int matX;
 	private int matY;
 	
-	public Characters(int posx, int posy, int matx, int maty) {
+	public Characters(int posx, int posy) {
 
 		this.posX = posx;
 		this.posY = posy;
-		this.matX = matx;
-		this.matY = maty;
+		
 	}
 	
 

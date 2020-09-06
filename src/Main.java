@@ -1,5 +1,4 @@
 
-
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -38,11 +37,11 @@ public class Main extends PApplet{
 		row= 33;
 		screen=1;
 		
-		posX=33;
-		posY=77;
+		posX=22;
+		posY=60;
 		matX=1;
 		matY=3;
-		player= new Calcifer(posX, posY, matX, matY, this);
+		
 		
 		
 		maze = new int [][] {
@@ -121,38 +120,13 @@ public class Main extends PApplet{
 				
 			case 4:
 				screens.maze();
-				ellipse(posX,posY,20,20);
+				player= new Calcifer(posX, posY,this);
 				break;
 			}
-			
-			
-			
+						
 		}
-
-		/*player.paint();
-
-		if (movR==true){
-			player.moveRight();
-		}
-
-		if (movL==true){
-			player.moveLeft();
-		}
-
-		if (movU==true){
-			player.moveUp();
-		}
-
-		if (movD==true){
-			player.moveDown();
-		}*/
-
-		
 
 	}
-
-
-
 
 	public void mousePressed() {
 
@@ -209,7 +183,7 @@ public class Main extends PApplet{
 		case RIGHT:
 			if(maze[matY][matX+1]!=0) {
 				posX += 22;
-				matX++;
+				matX++; 
 			}
 			break;
 		case LEFT:
