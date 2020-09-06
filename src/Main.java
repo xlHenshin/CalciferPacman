@@ -12,11 +12,6 @@ public class Main extends PApplet{
 		PApplet.main("Main");
 	}
 	
-	public boolean movR;
-	public boolean movL;
-	public boolean movU;
-	public boolean movD;
-
 	int [][] maze;
 	int col, row;	
 	int matX , matY;

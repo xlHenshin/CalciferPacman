@@ -1,9 +1,17 @@
+import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Saddie extends Raindrops {
-
-	public Saddie(int posx, int posy, int speed) {
-		super(posx, posy,speed);
-		// TODO Auto-generated constructor stub
+	
+	PApplet app;
+	PImage saddie;
+	
+	public Saddie(int posx, int posy, PApplet app) {
+		super(posx, posy, app);
+		this.app=app;
+		
+		saddie=app.loadImage("./Resources/Saddie.png");
+		app.image(saddie, getPosX(), getPosY());
 	}
 
 }
