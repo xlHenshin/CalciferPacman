@@ -13,8 +13,9 @@ public class Main extends PApplet{
 	public Screens screens;
 	public Calcifer player;
 	public Blinky blinky;
-	
-
+	public Glutton glutton;
+	public Grumpy grumpy;
+	public Saddie saddie;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -28,8 +29,8 @@ public class Main extends PApplet{
 	int score;
 	boolean dots=false;
 	int posX, posY;
-	int posobjectX, posobjectY;
-	int matobjectX, matobjectY;
+	
+	
 	ArrayList<String> tName;
 
 	public void settings() {
@@ -50,6 +51,11 @@ public class Main extends PApplet{
 		posY=60;
 		matX=1;
 		matY=3;
+		
+		blinky = new Blinky(250, 345 , this);
+		glutton = new Glutton(280, 345, this);
+		grumpy = new Grumpy(310, 345, this);
+		saddie = new Saddie(340, 345, this);
 		
 		dot=loadImage("./Resources/dot.png");
 
@@ -147,7 +153,17 @@ public class Main extends PApplet{
                 }
             }
 			
+			if (score == 26700) {
+	            	
+	            	text("YOU WON", 320, 40);
+	            	
+			}
+			
 			player= new Calcifer(posX, posY,this);
+			blinky.paint();
+			glutton.paint();
+			grumpy.paint();
+			saddie.paint();
 			
 			
 			break;

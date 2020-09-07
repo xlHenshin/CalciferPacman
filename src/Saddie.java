@@ -11,6 +11,10 @@ public class Saddie extends Raindrops {
 		this.app=app;
 		
 		saddie=app.loadImage("./Resources/Saddie.png");
+		
+	}
+	
+	protected void paint () {
 		app.image(saddie, getPosX(), getPosY());
 	}
 

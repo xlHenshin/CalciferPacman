@@ -11,8 +11,12 @@ public class Glutton extends Raindrops {
 		this.app=app;
 		
 		glutton=app.loadImage("./Resources/Glutton.png");
-		app.image(glutton, getPosX(), getPosY());
-		// TODO Auto-generated constructor stub
+		
 	}
+	
+	protected void paint () {
+		app.image(glutton, getPosX(), getPosY());
+	}
+
 
 }

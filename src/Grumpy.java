@@ -12,11 +12,11 @@ public class Grumpy extends Raindrops {
 		this.app=app;
 		
 		grumpy=app.loadImage("./Resources/Grumpy.png");
+		
+	}
+	
+	protected void paint () {
 		app.image(grumpy, getPosX(), getPosY());
-		
-		
-		// TODO Auto-generated constructor stub
-		
 	}
 
 }
