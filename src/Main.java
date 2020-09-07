@@ -30,9 +30,7 @@ public class Main extends PApplet{
 	boolean dots=false;
 	int posX, posY;
 	int seg, min;
-	
-	
-	ArrayList<String> tName;
+	boolean time;
 
 	public void settings() {
 		size(616, 728);
@@ -55,6 +53,7 @@ public class Main extends PApplet{
 		
 		min=0;
 		seg=0;
+		time=false;
 		
 		blinky = new Blinky(250, 345 , this);
 		glutton = new Glutton(280, 345, this);
@@ -168,15 +167,30 @@ public class Main extends PApplet{
 			grumpy.paint();
 			saddie.paint();
 			
-			if (frameCount % 30 == 0) {
-				seg += 1;
+			
+			time=true;
+			
+			if (score == 26700) {
+            	time=false;
+            	text("YOU WON", 320, 40);
+            	
 			}
-			if (seg == 60) {
-				seg = 0;
-				min += 1;
+			
+			if (time==true) {
+			
+				if (frameCount % 60 == 0) {
+					seg += 1;
+				}
+				if (seg == 60) {
+					seg = 0;
+					min += 1;
+				}
 			}
 			
 			text("TIME: "+ min + ":" + seg, 180, 40);
+			
+			
+			
 			
 			
 			break;
