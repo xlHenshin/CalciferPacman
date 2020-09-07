@@ -26,6 +26,7 @@ public class Main extends PApplet{
 	int matX , matY;
 	int screen;
 	int score;
+	boolean dots=false;
 	int posX, posY;
 	int posobjectX, posobjectY;
 	int matobjectX, matobjectY;
@@ -73,7 +74,7 @@ public class Main extends PApplet{
 			{2, 2, 2, 2, 2, 0, 1, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 1, 0, 2, 2, 2, 2, 2 }, //12
 			{2, 2, 2, 2, 2, 0, 1, 0, 0, 2, 0, 0, 0, 2, 2, 0, 0, 0, 2, 0, 0, 1, 0, 2, 2, 2, 2, 2 }, //13
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0 }, //14
-			{1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, //15
+			{3, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3 }, //15
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 2, 2, 2, 2, 2, 2, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0 }, //16
 			{2, 2, 2, 2, 2, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 2, 2, 2, 2, 2 }, //17
 			{2, 2, 2, 2, 2, 0, 1, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 1, 0, 2, 2, 2, 2, 2 }, //18
@@ -136,8 +137,8 @@ public class Main extends PApplet{
 
 		case 4:
 			screens.maze();
-			
-			
+			text("SCORE: "+ score,80, 40);
+			textSize(20);
 			for (int i = 0; i<28; i++) {
                 for (int j = 0; j<33; j++) { 
                     if (maze[j][i] == 1) { 
@@ -211,11 +212,32 @@ public class Main extends PApplet{
 				posX += 22;
 				matX++; 
 			}
+			
+			if(maze[matY][matX]==1) {
+				dots=true;
+				score+=100;
+			}
+			maze[matY][matX] = 2;
+			
+			if (maze[matY][matX]==2) {
+				dots = false;
+			}
+			
 			break;
 		case LEFT:
 			if(maze[matY][matX-1]!=0) {
 				posX -= 22;
 				matX--;
+			}
+			
+			if(maze[matY][matX]==1) {
+				dots=true;
+				score+=100;
+			}
+			maze[matY][matX] = 2;
+			
+			if (maze[matY][matX]==2) {
+				dots = false;
 			}
 			break;
 		case UP:
@@ -223,11 +245,31 @@ public class Main extends PApplet{
 				posY -= 22;
 				matY--;
 			}
+			
+			if(maze[matY][matX]==1) {
+				dots=true;
+				score+=100;
+			}
+			maze[matY][matX] = 2;
+			
+			if (maze[matY][matX]==2) {
+				dots = false;
+			}
 			break;
 		case DOWN:
 			if(maze[matY+1][matX]!=0) {
 				posY += 22;
 				matY++;
+			}
+			
+			if(maze[matY][matX]==1) {
+				dots=true;
+				score+=100;
+			}
+			maze[matY][matX] = 2;
+			
+			if (maze[matY][matX]==2) {
+				dots = false;
 			}
 			break;
 		default:
