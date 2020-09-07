@@ -29,6 +29,7 @@ public class Main extends PApplet{
 	int score;
 	boolean dots=false;
 	int posX, posY;
+	int seg, min;
 	
 	
 	ArrayList<String> tName;
@@ -52,6 +53,9 @@ public class Main extends PApplet{
 		matX=1;
 		matY=3;
 		
+		min=0;
+		seg=0;
+		
 		blinky = new Blinky(250, 345 , this);
 		glutton = new Glutton(280, 345, this);
 		grumpy = new Grumpy(310, 345, this);
@@ -59,7 +63,6 @@ public class Main extends PApplet{
 		
 		dot=loadImage("./Resources/dot.png");
 
-		tName= new ArrayList<String>();
 
 		maze = new int [][] {
 			//1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
@@ -143,7 +146,7 @@ public class Main extends PApplet{
 
 		case 4:
 			screens.maze();
-			text("SCORE: "+ score,80, 40);
+			text("SCORE: "+ score,20, 40);
 			textSize(20);
 			for (int i = 0; i<28; i++) {
                 for (int j = 0; j<33; j++) { 
@@ -164,6 +167,16 @@ public class Main extends PApplet{
 			glutton.paint();
 			grumpy.paint();
 			saddie.paint();
+			
+			if (frameCount % 30 == 0) {
+				seg += 1;
+			}
+			if (seg == 60) {
+				seg = 0;
+				min += 1;
+			}
+			
+			text("TIME: "+ min + ":" + seg, 180, 40);
 			
 			
 			break;
