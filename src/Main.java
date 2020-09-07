@@ -9,7 +9,6 @@ public class Main extends PApplet{
 
 	PImage dot;
 	
-	
 	public Screens screens;
 	public Calcifer player;
 	public Blinky blinky;
@@ -42,32 +41,39 @@ public class Main extends PApplet{
 
 		screens = new Screens(this);
 
+		//Columns and rows of the matrix
 		col=28;
 		row= 33;
+		
+		//Variable to change the screen
 		screen=1;
 
-		posX=22;
+		//Calcifer's position on canvas and matrix
+		posX=22; 
 		posY=60;
 		matX=1;
 		matY=3;
 		
+		//Variables for timer
 		min=0;
 		seg=0;
 		time=false;
 		
+		//Position of Raindrops
 		blinky = new Blinky(250, 345 , this);
 		glutton = new Glutton(280, 345, this);
 		grumpy = new Grumpy(310, 345, this);
 		saddie = new Saddie(340, 345, this);
 		
+		//Dot's PNG
 		dot=loadImage("./Resources/dot.png");
 
-
+		
 		maze = new int [][] {
 			//1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
 
-			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, //1
-			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, //1
+			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, //empty space
+			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, //empty space
 			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, //1
 			{0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 }, //2
 			{0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0 }, //3
@@ -111,6 +117,8 @@ public class Main extends PApplet{
 	public void draw() {
 		background (0);
 
+		
+		//Paint the matrix structure
 		for (int i = 0; i < col; i++) {
 			for (int j = 0; j < row; j++) {
 				if(maze[j][i] == 0) {
@@ -130,23 +138,37 @@ public class Main extends PApplet{
 
 		}
 
+		
+		//Switch to change the screen
 		switch (screen) {
 		case 1:
+			
+			//Main menu
 			screens.screen1();
 			break;
 
 		case 2:
+			
+			//Name screen
 			screens.screen2();
 			break;
 
 		case 3:
+			
+			//Score screen
 			screens.screen3();
 			break;
 
 		case 4:
+			
+			//Game screen
 			screens.maze();
+			
+			//Score counter
 			text("SCORE: "+ score,20, 40);
 			textSize(20);
+			
+			//Print dots in the maze
 			for (int i = 0; i<28; i++) {
                 for (int j = 0; j<33; j++) { 
                     if (maze[j][i] == 1) { 
@@ -154,13 +176,10 @@ public class Main extends PApplet{
                     }
                 }
             }
-			
-			if (score == 26700) {
 	            	
-	            	text("YOU WON", 320, 40);
-	            	
-			}
 			
+			
+			//Print characters
 			player= new Calcifer(posX, posY,this);
 			blinky.paint();
 			glutton.paint();
@@ -168,6 +187,7 @@ public class Main extends PApplet{
 			saddie.paint();
 			
 			
+			//Timer: when time variable is true, timer will be enabled until the player gets max score
 			time=true;
 			
 			if (score == 26700) {
@@ -187,21 +207,24 @@ public class Main extends PApplet{
 				}
 			}
 			
+			//Show timer in the screen
 			text("TIME: "+ min + ":" + seg, 180, 40);
-			
-			
-			
-			
 			
 			break;
 		}
 		
 	}
+	
+	//Method to use mouse
 	public void mousePressed() {
 
+		//Get mouse coordinates
 		PApplet.println(mouseX);
 		PApplet.println(mouseY);
-
+		
+		
+		//Each case is a screen in the game. Each if is a button conditional
+		//If player clicks a button in the screen, it will be taken to another screen
 		switch (screen) {
 		case 1:
 			if (mouseX > 227 && mouseX < 277 + 163
@@ -246,7 +269,9 @@ public class Main extends PApplet{
 		}
 	}
 
-
+	//Method to use arrow keys. When an arrow key is pressed, it will move Calcifer in the CANVAS and in the Matrix
+	//Walls in matrix are represented with number 0, dots with 1 and empty spaces with 2
+	//Score variable will change when Calcifer is in the position of a dot
 	public void keyPressed() {
 
 		switch (keyCode) {

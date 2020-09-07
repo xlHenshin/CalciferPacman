@@ -14,6 +14,7 @@ public class Blinky extends Raindrops {
 		
 	}
 
+	
 	protected void paint () {
 		app.image(blinky, getPosX(), getPosY());
 	}

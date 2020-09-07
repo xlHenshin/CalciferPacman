@@ -11,6 +11,7 @@ public class Raindrops extends Characters {
 		// TODO Auto-generated constructor stub
 	}
 
+	//Print Method
 	protected void paint() {
 	
 	}

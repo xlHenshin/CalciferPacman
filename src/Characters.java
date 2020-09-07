@@ -3,8 +3,7 @@ public abstract class Characters {
 
 	private int posX;
 	private int posY;
-	private int matX;
-	private int matY;
+	
 	
 	public Characters(int posx, int posy) {
 
@@ -30,30 +29,5 @@ public abstract class Characters {
 		this.posY = posY;
 	}
 
-
-
-	public int getMatX() {
-		return matX;
-	}
-
-
-
-	public void setMatX(int matX) {
-		this.matX = matX;
-	}
-
-
-
-	public int getMatY() {
-		return matY;
-	}
-
-
-
-	public void setMatY(int matY) {
-		this.matY = matY;
-	}
-	
-	
 	
 }
