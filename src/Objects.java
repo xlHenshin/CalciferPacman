@@ -7,6 +7,12 @@ public abstract class Objects {
 	private boolean power;
 	private int time;
 	
+	public Objects(int posx, int posy) {
+		// TODO Auto-generated constructor stub
+		this.positionX = posx;
+		this.positionY = posy;
+	}
+
 	protected abstract void paintObject();
 
 	

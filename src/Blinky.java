@@ -11,7 +11,11 @@ public class Blinky extends Raindrops {
 		this.app=app;
 		
 		blinky=app.loadImage("./Resources/Blinky.png");
-		app.image(blinky, getPosX(), getPosY());
+		
 	}
 
+	protected void paint () {
+		app.image(blinky, getPosX(), getPosY());
+	}
+	
 }

@@ -14,9 +14,6 @@ public abstract class Characters {
 	}
 	
 
-
-	protected abstract void paint();
-
 	public int getPosX() {
 		return posX;
 	}

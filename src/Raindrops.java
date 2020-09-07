@@ -12,9 +12,9 @@ public class Raindrops extends Characters {
 	}
 
 	protected void paint() {
-		// TODO Auto-generated method stub
-		
+	
 	}
+	
 	
 	protected void move() {
 	

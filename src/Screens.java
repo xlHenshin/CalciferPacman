@@ -9,6 +9,7 @@ public class Screens {
 	PImage screen2;
 	PImage screen3;
 	PImage maze;
+
 	
 	public Screens (PApplet app) {
 		
@@ -41,6 +42,7 @@ public class Screens {
 		app.image (screen3, 0, 0);
 	}
 	
+
 	public void maze() {
 		
 		app.image (maze, 0, 0);

@@ -22,10 +22,4 @@ public class Calcifer extends Characters {
 
 	}
 
-	@Override
-	protected void paint() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
